@@ -1,6 +1,7 @@
 package com.luigh.raveen.luigh;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.Environment;
 import android.util.Log;
@@ -12,10 +13,13 @@ import static android.content.ContentValues.TAG;
 
 /**
  * Created by raveen on 11/29/16.
+ *
  */
+
 public class OCRFunctions {
 
-    TessBaseAPI tessBaseAPI;
+    private TessBaseAPI tessBaseAPI;
+    private AssetManager assetManager;
 
     public OCRFunctions (){
         tessBaseAPI = new TessBaseAPI();
@@ -30,11 +34,11 @@ public class OCRFunctions {
             if (!tess.exists()){
                 tess.mkdir();
             }
+
         }
+
         //Init the Tess with the trained data file, with english language
         tessBaseAPI.init(datapath, language);
-
-
 
     }
 
